@@ -13,9 +13,9 @@ function play() {
             2. Paper
             3. Scissors`)
         
-        // let option = prompt("Enter option(q for quit): ");
+        let option = prompt("Enter option(q for quit)");
         
-        // if(option === 'q') break;
+        if(option === 'q') break;
     
         let computer_option = Math.floor(Math.random() * 4);
         console.log(computer_option);

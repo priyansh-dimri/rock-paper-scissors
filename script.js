@@ -1,5 +1,10 @@
 // Welcome Message
 console.log("Welcome to Rock Paper Scissors Game!");
+console.info(`Please choose one of the following option number when prompted:
+    1. Rock
+    2. Paper
+    3. Scissors`)
+console.log("Type play() in console to start the game!");
 
 function play() {
     

@@ -32,7 +32,12 @@ function play() {
         let computer_option = Math.floor(Math.random() * 4);
         console.log(computer_option);
 
-        let winner = "Tie";
+        let winner;
+
+        if(option_number === computer_option) {
+            winner = "Tie";
+        }
+        
         // Check the following:
         // User Computer Winner
         // 1    1        Tie
@@ -44,7 +49,45 @@ function play() {
         // 3    1        Computer
         // 3    2        User
         // 3    3        Tie
+        switch (option_number) {
+            case 1:
+                switch (computer_option) {
+                    case 2:
+                        winner = "Computer";
+                        break;
+                    case 3:
+                        winner = "User";
+                        break;
+                }
+                break;
+            case 2:
+                switch (computer_option) {
+                    case 1:
+                        winner = "User";
+                        break;
+                    case 3:
+                        winner = "Computer";
+                        break;
+                }
+                break;
+            case 3:
+                switch (computer_option) {
+                    case 1:
+                        winner = "Computer";
+                        break;
+                    case 2:
+                        winner = "User";
+                        break;
+                }
+                break;
+        }
         // Print the result as console.info and loop continues
+        if(winner === "Tie") {
+            alert("It is a tie!");
+        }
+        else{
+            alert(`Winner is ${winner}!`);
+        }
     }
     console.log("Thank you for playing!");
 }

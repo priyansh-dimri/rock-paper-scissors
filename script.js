@@ -29,7 +29,7 @@ function play() {
         }
     
         // If it is valid, use a random number out of 1, 2 or 3 by the computer
-        let computer_option = Math.floor(Math.random() * 4);
+        let computer_option = Math.floor((Math.random() * 3) + 1);
         console.log(computer_option);
 
         let winner;
@@ -81,7 +81,7 @@ function play() {
                 }
                 break;
         }
-        
+
         // Alert the winner and loop continues
         if(winner === "Tie") {
             alert("It is a tie!");

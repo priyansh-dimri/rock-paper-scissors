@@ -81,7 +81,8 @@ function play() {
                 }
                 break;
         }
-        // Print the result as console.info and loop continues
+        
+        // Alert the winner and loop continues
         if(winner === "Tie") {
             alert("It is a tie!");
         }

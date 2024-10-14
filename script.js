@@ -18,6 +18,17 @@ function getHumanChoice() {
     return option;
 }
 
+// Validate input
+function isValidHumanChoice(option) {
+    if(option === null || typeof option === 'string') return false;
+
+    let option_number = parseInt(option);
+
+    if(option_number < 0 || option_number > 3) return false;
+
+    return true;
+}
+
 function play() {    
     // Continuously loop the game for user's input until user types 'q'
     while (true) {
@@ -25,15 +36,12 @@ function play() {
         let option = getHumanChoice();
         
         if(option === 'q') break;
+
+        let isValid = isValidHumanChoice(option);
+
+        if(!isValid) console.warn("Please enter a valid option number or 'q' for quit!");
         
         let option_number = parseInt(option);
-
-        // Check if the entered input is valid or not
-        if(option === null || typeof option === 'string' || option_number < 0 || option_number > 3) {
-            // If it is invalid, provide a warning telling the user to input proper input and loop again
-            console.warn("Please enter a valid option number or 'q' for quit!");
-            continue;
-        }
     
         // If it is valid, use a random number out of 1, 2 or 3 by the computer
         let computer_option = Math.floor((Math.random() * 3) + 1);

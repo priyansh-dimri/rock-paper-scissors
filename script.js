@@ -29,7 +29,7 @@ function play() {
         let option_number = parseInt(option);
 
         // Check if the entered input is valid or not
-        if(option === null || option_number === NaN || option_number < 0 || option_number > 3) {
+        if(option === null || typeof option === 'string' || option_number < 0 || option_number > 3) {
             // If it is invalid, provide a warning telling the user to input proper input and loop again
             console.warn("Please enter a valid option number or 'q' for quit!");
             continue;

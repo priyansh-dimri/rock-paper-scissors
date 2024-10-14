@@ -13,7 +13,7 @@ function play() {
         console.log(`Please choose one of the following option number:
             1. Rock
             2. Paper
-            3. Scissors`)
+            3. Scissors`);
         
         let option = prompt("Enter option(q for quit)");
         
@@ -34,9 +34,7 @@ function play() {
 
         let winner;
 
-        if(option_number === computer_option) {
-            winner = "Tie";
-        }
+        if(option_number === computer_option) winner = "Tie";
         
         // Check the following:
         // User Computer Winner
@@ -83,12 +81,8 @@ function play() {
         }
 
         // Alert the winner and loop continues
-        if(winner === "Tie") {
-            alert("It is a tie!");
-        }
-        else{
-            alert(`Winner is ${winner}!`);
-        }
+        if(winner === "Tie") alert("It is a tie!");
+        else alert(`Winner is ${winner}!`);
     }
     console.log("Thank you for playing!");
 }

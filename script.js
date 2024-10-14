@@ -13,18 +13,18 @@ function getHumanChoice() {
     2. Paper
     3. Scissors`);
     
-    let option = prompt("Enter option(q for quit)");
+    let human_choice = prompt("Enter option(q for quit)");
 
-    return option;
+    return human_choice;
 }
 
 // Validate input
-function isValidHumanChoice(option) {
-    if(option === null || option === "" || isNaN(option)) return false;
+function isValidHumanChoice(choice) {
+    if(choice === null || choice === "" || isNaN(choice)) return false;
 
-    let option_number = parseInt(option);
+    let choice_number = parseInt(choice);
 
-    if(option_number < 0 || option_number > 3) return false;
+    if(choice_number < 0 || choice_number > 3) return false;
 
     return true;
 }
@@ -98,10 +98,10 @@ function play() {
     // Continuously loop the game for user's input until user types 'q'
     while (true) {
         // Get human choice
-        let option = getHumanChoice();
+        let human_choice = getHumanChoice();
 
         // If option is `q`, the loop is broken
-        if(option === 'q') break;
+        if(human_choice === 'q') break;
 
         // Check for the human choice validity
         let isValid = isValidHumanChoice(option);
@@ -113,13 +113,13 @@ function play() {
         }
 
         // Convert the `option` string to number
-        let option_number = parseInt(option);
+        let human_choice_number = parseInt(option);
 
         // If it is valid, use a random number out of 1, 2 or 3 by the computer
-        let computer_choice = generateComputerChoice();
+        let computer_choice_number = generateComputerChoice();
         
         // Get winner using human and computer choice
-        let winner = getWinner(option_number, computer_choice);
+        let winner = getWinner(human_choice_number, computer_choice_number);
 
         // Print the result of rock-paper-scissors game
         printResult(winner);

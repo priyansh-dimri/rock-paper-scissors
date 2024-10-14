@@ -66,7 +66,7 @@ function getWinner(humanChoice, computerChoice) {
             }
             break;
         case 2:
-            switch (computer_option) {
+            switch (computerChoice) {
                 case 1:
                     winner = "User";
                     break;
@@ -76,7 +76,7 @@ function getWinner(humanChoice, computerChoice) {
             }
             break;
         case 3:
-            switch (computer_option) {
+            switch (computerChoice) {
                 case 1:
                     winner = "Computer";
                     break;
@@ -102,6 +102,11 @@ function modifyScores(winner) {
     else if(winner === "Computer") computer_score++;
 }
 
+// Function to display the scores of user and computer
+function displayScores() {
+    console.log(`Your Score: ${human_score}\nComputer Score: ${computer_score}`);
+}
+
 function play() {
     
     // Continuously loop the game for user's input until user types 'q'
@@ -113,7 +118,7 @@ function play() {
         if(human_choice === 'q') break;
 
         // Check for the human choice validity
-        let isValid = isValidHumanChoice(option);
+        let isValid = isValidHumanChoice(human_choice);
 
         // If the user choice is invalid, warning message is provided and loop is looped again
         if(!isValid){
@@ -122,7 +127,7 @@ function play() {
         }
 
         // Convert the `option` string to number
-        let human_choice_number = parseInt(option);
+        let human_choice_number = parseInt(human_choice);
 
         // If it is valid, use a random number out of 1, 2 or 3 by the computer
         let computer_choice_number = generateComputerChoice();
@@ -135,6 +140,9 @@ function play() {
 
         // Modify user and computer scores after each round
         modifyScores(winner);
+
+        // Display the scores after each round
+        displayScores();
     }
 
     // Thank you message after the game is completed

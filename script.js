@@ -34,6 +34,59 @@ function generateComputerChoice() {
     return Math.floor((Math.random() * 3) + 1);
 }
 
+// Calculate winner using human and computer choice
+function getWinner(humanChoice, computerChoice) {
+    let winner;
+    
+    if(humanChoice === computerChoice) winner = "Tie";
+    
+    // Check the following:
+    // User Computer Winner
+    // 1    1        Tie
+    // 1    2        Computer
+    // 1    3        User
+    // 2    1        User
+    // 2    2        Tie
+    // 2    3        Computer
+    // 3    1        Computer
+    // 3    2        User
+    // 3    3        Tie
+    switch (humanChoice) {
+        case 1:
+            switch (computerChoice) {
+                case 2:
+                    winner = "Computer";
+                    break;
+                case 3:
+                    winner = "User";
+                    break;
+            }
+            break;
+        case 2:
+            switch (computer_option) {
+                case 1:
+                    winner = "User";
+                    break;
+                case 3:
+                    winner = "Computer";
+                    break;
+            }
+            break;
+        case 3:
+            switch (computer_option) {
+                case 1:
+                    winner = "Computer";
+                    break;
+                case 2:
+                    winner = "User";
+                    break;
+            }
+            break;
+    }
+
+    return winner;
+}
+
 function play() {    
     // Continuously loop the game for user's input until user types 'q'
     while (true) {
@@ -47,57 +100,14 @@ function play() {
         if(!isValid) console.warn("Please enter a valid option number or 'q' for quit!");
         
         let option_number = parseInt(option);
+        console.log(`option is ${option_number} and type is ${typeof option_number}`)
     
         // If it is valid, use a random number out of 1, 2 or 3 by the computer
-        let computer_option = generateComputerChoice();
+        let computer_choice = generateComputerChoice();
+        console.log(`computer option is ${computer_choice} and type is ${typeof computer_choice}`)
 
-        let winner;
-
-        if(option_number === computer_option) winner = "Tie";
-        
-        // Check the following:
-        // User Computer Winner
-        // 1    1        Tie
-        // 1    2        Computer
-        // 1    3        User
-        // 2    1        User
-        // 2    2        Tie
-        // 2    3        Computer
-        // 3    1        Computer
-        // 3    2        User
-        // 3    3        Tie
-        switch (option_number) {
-            case 1:
-                switch (computer_option) {
-                    case 2:
-                        winner = "Computer";
-                        break;
-                    case 3:
-                        winner = "User";
-                        break;
-                }
-                break;
-            case 2:
-                switch (computer_option) {
-                    case 1:
-                        winner = "User";
-                        break;
-                    case 3:
-                        winner = "Computer";
-                        break;
-                }
-                break;
-            case 3:
-                switch (computer_option) {
-                    case 1:
-                        winner = "Computer";
-                        break;
-                    case 2:
-                        winner = "User";
-                        break;
-                }
-                break;
-        }
+        // Get winner using human and computer choice
+        let winner = getWinner(option_number, computer_choice);
 
         // Alert the winner and loop continues
         if(winner === "Tie") alert("It is a tie!");

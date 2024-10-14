@@ -96,6 +96,12 @@ function printResult(winner) {
     else alert(`Winner is ${winner}!`);
 }
 
+// Function to modify the scores of user or computer based on winner
+function modifyScores(winner) {
+    if(winner === "User") human_score++;
+    else if(winner === "Computer") computer_score++;
+}
+
 function play() {
     
     // Continuously loop the game for user's input until user types 'q'
@@ -126,6 +132,9 @@ function play() {
 
         // Print the result of rock-paper-scissors game
         printResult(winner);
+
+        // Modify user and computer scores after each round
+        modifyScores(winner);
     }
 
     // Thank you message after the game is completed

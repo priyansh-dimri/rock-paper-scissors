@@ -37,7 +37,7 @@ function generateComputerChoice() {
 // Calculate winner using human and computer choice
 function getWinner(humanChoice, computerChoice) {
     let winner;
-    
+
     if(humanChoice === computerChoice) winner = "Tie";
     
     // Check the following:
@@ -100,11 +100,9 @@ function play() {
         if(!isValid) console.warn("Please enter a valid option number or 'q' for quit!");
         
         let option_number = parseInt(option);
-        console.log(`option is ${option_number} and type is ${typeof option_number}`)
     
         // If it is valid, use a random number out of 1, 2 or 3 by the computer
         let computer_choice = generateComputerChoice();
-        console.log(`computer option is ${computer_choice} and type is ${typeof computer_choice}`)
 
         // Get winner using human and computer choice
         let winner = getWinner(option_number, computer_choice);

@@ -6,16 +6,23 @@ console.info(`Please choose one of the following option number when prompted:
     3. Scissors`)
 console.log("Type play() in console to start the game!");
 
+// Ask user to enter 1, 2 or 3 where 1 means rock, 2 means paper, 3 means scissors or 'q' for quit
+function getHumanChoice() {
+    console.log(`Please choose one of the following option number:
+    1. Rock
+    2. Paper
+    3. Scissors`);
+    
+    let option = prompt("Enter option(q for quit)");
+
+    return option;
+}
+
 function play() {    
     // Continuously loop the game for user's input until user types 'q'
     while (true) {
-        // Ask user to enter 1, 2 or 3 where 1 means rock, 2 means paper, 3 means scissors or 'q' for quit
-        console.log(`Please choose one of the following option number:
-            1. Rock
-            2. Paper
-            3. Scissors`);
-        
-        let option = prompt("Enter option(q for quit)");
+        // Get human choice
+        let option = getHumanChoice();
         
         if(option === 'q') break;
         

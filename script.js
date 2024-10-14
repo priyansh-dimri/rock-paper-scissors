@@ -20,7 +20,7 @@ function getHumanChoice() {
 
 // Validate input
 function isValidHumanChoice(option) {
-    if(option === null || !isNaN(option)) return false;
+    if(option === null || option === "" || isNaN(option)) return false;
 
     let option_number = parseInt(option);
 
@@ -103,7 +103,10 @@ function play() {
 
         let isValid = isValidHumanChoice(option);
 
-        if(!isValid) console.warn("Please enter a valid option number or 'q' for quit!");
+        if(!isValid){
+            console.warn("Please enter a valid option number or 'q' for quit!");
+            continue;
+        }
         
         let option_number = parseInt(option);
 

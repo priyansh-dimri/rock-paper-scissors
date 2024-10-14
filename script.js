@@ -20,7 +20,7 @@ function getHumanChoice() {
 
 // Validate input
 function isValidHumanChoice(option) {
-    if(option === null || typeof option === 'string') return false;
+    if(option === null || !isNaN(option)) return false;
 
     let option_number = parseInt(option);
 
@@ -87,6 +87,12 @@ function getWinner(humanChoice, computerChoice) {
     return winner;
 }
 
+// Function to alert the winner
+function printResult(winner) {
+    if(winner === "Tie") alert("It is a tie!");
+    else alert(`Winner is ${winner}!`);
+}
+
 function play() {    
     // Continuously loop the game for user's input until user types 'q'
     while (true) {
@@ -100,16 +106,14 @@ function play() {
         if(!isValid) console.warn("Please enter a valid option number or 'q' for quit!");
         
         let option_number = parseInt(option);
-    
+
         // If it is valid, use a random number out of 1, 2 or 3 by the computer
         let computer_choice = generateComputerChoice();
-
+        
         // Get winner using human and computer choice
         let winner = getWinner(option_number, computer_choice);
 
-        // Alert the winner and loop continues
-        if(winner === "Tie") alert("It is a tie!");
-        else alert(`Winner is ${winner}!`);
+        printResult(winner);
     }
     console.log("Thank you for playing!");
 }

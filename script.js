@@ -93,21 +93,26 @@ function printResult(winner) {
     else alert(`Winner is ${winner}!`);
 }
 
-function play() {    
+function play() {
+    
     // Continuously loop the game for user's input until user types 'q'
     while (true) {
         // Get human choice
         let option = getHumanChoice();
-        
+
+        // If option is `q`, the loop is broken
         if(option === 'q') break;
 
+        // Check for the human choice validity
         let isValid = isValidHumanChoice(option);
 
+        // If the user choice is invalid, warning message is provided and loop is looped again
         if(!isValid){
             console.warn("Please enter a valid option number or 'q' for quit!");
             continue;
         }
-        
+
+        // Convert the `option` string to number
         let option_number = parseInt(option);
 
         // If it is valid, use a random number out of 1, 2 or 3 by the computer
@@ -116,8 +121,11 @@ function play() {
         // Get winner using human and computer choice
         let winner = getWinner(option_number, computer_choice);
 
+        // Print the result of rock-paper-scissors game
         printResult(winner);
     }
+
+    // Thank you message after the game is completed
     console.log("Thank you for playing!");
 }
 

@@ -29,6 +29,11 @@ function isValidHumanChoice(option) {
     return true;
 }
 
+// Generate random number from 0 to 3
+function generateComputerChoice() {
+    return Math.floor((Math.random() * 3) + 1);
+}
+
 function play() {    
     // Continuously loop the game for user's input until user types 'q'
     while (true) {
@@ -44,8 +49,7 @@ function play() {
         let option_number = parseInt(option);
     
         // If it is valid, use a random number out of 1, 2 or 3 by the computer
-        let computer_option = Math.floor((Math.random() * 3) + 1);
-        console.log(computer_option);
+        let computer_option = generateComputerChoice();
 
         let winner;
 

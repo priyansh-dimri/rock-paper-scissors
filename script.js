@@ -6,9 +6,6 @@ console.info(`Please choose one of the following option number when prompted:
     3. Scissors`)
 console.log("Type play() in console to start the game!");
 
-let human_score = 0, 
-    computer_score = 0;
-
 // Ask user to enter 1, 2 or 3 where 1 means rock, 2 means paper, 3 means scissors or 'q' for quit
 function getHumanChoice() {
     console.log(`Please choose one of the following option number:
@@ -97,20 +94,23 @@ function printResult(winner) {
 }
 
 // Function to modify the scores of user or computer based on winner
-function modifyScores(winner) {
+function modifyScores(winner, human_score, computer_score) {
     if(winner === "User") human_score++;
     else if(winner === "Computer") computer_score++;
 }
 
 // Function to display the scores of user and computer
-function displayScores() {
+function displayScores(human_score, computer_score) {
     console.log(`Your Score: ${human_score}\nComputer Score: ${computer_score}`);
 }
 
 function play() {
+
+    let human_score = 0, 
+    computer_score = 0;
     
     // Continuously loop the game for user's input until user types 'q'
-    while (true) {
+    for(let i = 0; i < 5; ++i) {
         // Get human choice
         let human_choice = getHumanChoice();
 
@@ -139,13 +139,16 @@ function play() {
         printResult(winner);
 
         // Modify user and computer scores after each round
-        modifyScores(winner);
+        modifyScores(winner, human_score, computer_score);
 
         // Display the scores after each round
-        displayScores();
+        displayScores(human_score, computer_score);
     }
 
     // Thank you message after the game is completed
     console.log("Thank you for playing!");
 }
 
+function playGame() {
+    play();
+}

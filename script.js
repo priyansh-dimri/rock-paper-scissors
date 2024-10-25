@@ -110,40 +110,38 @@ function play() {
     computer_score = 0;
     
     // Continuously loop the game for user's input until user types 'q'
-    for(let i = 0; i < 5; ++i) {
-        // Get human choice
-        let human_choice = getHumanChoice();
+    // Get human choice
+    let human_choice = getHumanChoice();
 
-        // If option is `q`, the loop is broken
-        if(human_choice === 'q') break;
+    // If option is `q`, the loop is broken
+    if(human_choice === 'q') return;
 
-        // Check for the human choice validity
-        let isValid = isValidHumanChoice(human_choice);
+    // Check for the human choice validity
+    let isValid = isValidHumanChoice(human_choice);
 
-        // If the user choice is invalid, warning message is provided and loop is looped again
-        if(!isValid){
-            console.warn("Please enter a valid option number or 'q' for quit!");
-            continue;
-        }
-
-        // Convert the `option` string to number
-        let human_choice_number = parseInt(human_choice);
-
-        // If it is valid, use a random number out of 1, 2 or 3 by the computer
-        let computer_choice_number = generateComputerChoice();
-        
-        // Get winner using human and computer choice
-        let winner = getWinner(human_choice_number, computer_choice_number);
-
-        // Print the result of rock-paper-scissors game
-        printResult(winner);
-
-        // Modify user and computer scores after each round
-        modifyScores(winner, human_score, computer_score);
-
-        // Display the scores after each round
-        displayScores(human_score, computer_score);
+    // If the user choice is invalid, warning message is provided and loop is looped again
+    if(!isValid){
+        console.warn("Please enter a valid option number or 'q' for quit!");
+        return;
     }
+
+    // Convert the `option` string to number
+    let human_choice_number = parseInt(human_choice);
+
+    // If it is valid, use a random number out of 1, 2 or 3 by the computer
+    let computer_choice_number = generateComputerChoice();
+    
+    // Get winner using human and computer choice
+    let winner = getWinner(human_choice_number, computer_choice_number);
+
+    // Print the result of rock-paper-scissors game
+    printResult(winner);
+
+    // Modify user and computer scores after each round
+    modifyScores(winner, human_score, computer_score);
+
+    // Display the scores after each round
+    displayScores(human_score, computer_score);
 
     // Thank you message after the game is completed
     console.log("Thank you for playing!");

@@ -1,3 +1,7 @@
+// Global variables for human and computer scores
+let human_score = 0, 
+    computer_score = 0;
+
 // Welcome Message
 console.log("Welcome to Rock Paper Scissors Game!");
 console.info(`Please choose one of the following option number when prompted:
@@ -106,8 +110,6 @@ function displayScores(human_score, computer_score) {
 
 function play() {
 
-    let human_score = 0, 
-    computer_score = 0;
     
     // Continuously loop the game for user's input until user types 'q'
     // Get human choice
@@ -147,6 +149,4 @@ function play() {
     console.log("Thank you for playing!");
 }
 
-function playGame() {
-    play();
-}
+// play();

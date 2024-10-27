@@ -104,9 +104,6 @@ function play(buttonId) {
 
     // Modify user and computer scores after each round
     modifyScores(winner, human_score, computer_score);
-
-    // Display the scores after each round
-    displayScores(human_score, computer_score);
 }
 
 const humanChoiceButtons = document.querySelectorAll('.rps-option');

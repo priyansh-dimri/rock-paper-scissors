@@ -2,14 +2,6 @@
 let human_score = 0, 
     computer_score = 0;
 
-// Welcome Message
-console.log("Welcome to Rock Paper Scissors Game!");
-console.info(`Please choose one of the following option number when prompted:
-    1. Rock
-    2. Paper
-    3. Scissors`)
-console.log("Type play() in console to start the game!");
-
 function getHumanChoiceNumber(buttonId) {
     if(buttonId === 'rock') return 1;
     else if(buttonId === 'paper') return 2;
@@ -93,11 +85,6 @@ function modifyScores(winner, human_score, computer_score) {
     else if(winner === "Computer") computer_score++;
 }
 
-// Function to display the scores of user and computer
-function displayScores(human_score, computer_score) {
-    console.log(`Your Score: ${human_score}\nComputer Score: ${computer_score}`);
-}
-
 function play(buttonId) {
     let human_choice_number = getHumanChoiceNumber(buttonId);
 
@@ -120,9 +107,6 @@ function play(buttonId) {
 
     // Display the scores after each round
     displayScores(human_score, computer_score);
-
-    // Thank you message after the game is completed
-    console.log("Thank you for playing!");
 }
 
 const humanChoiceButtons = document.querySelectorAll('.rps-option');

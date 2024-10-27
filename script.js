@@ -1,6 +1,7 @@
 // Global variables for human and computer scores
 let human_score = 0, 
-    computer_score = 0;
+    computer_score = 0,
+    current_round = 0;
 
 function getHumanChoiceNumber(buttonId) {
     if(buttonId === 'rock') return 1;
@@ -80,12 +81,14 @@ function displayWinner(winner) {
 }
 
 // Function to modify the scores of user or computer based on winner
-function modifyScores(winner, human_score, computer_score) {
+function modifyScores(winner) {
     if(winner === "User") human_score++;
     else if(winner === "Computer") computer_score++;
 }
 
 function play(buttonId) {
+    ++current_round;
+
     let human_choice_number = getHumanChoiceNumber(buttonId);
 
     if(human_choice_number === 4){
@@ -99,11 +102,13 @@ function play(buttonId) {
     // Get winner using human and computer choice
     let winner = getWinner(human_choice_number, computer_choice_number);
 
-    // Print the result of rock-paper-scissors game
-    displayWinner(winner);
-
     // Modify user and computer scores after each round
-    modifyScores(winner, human_score, computer_score);
+    modifyScores(winner);
+
+    if(round_count === 5) {
+        // Print the result of rock-paper-scissors game
+        displayWinner(winner);
+    }
 }
 
 const humanChoiceButtons = document.querySelectorAll('.rps-option');

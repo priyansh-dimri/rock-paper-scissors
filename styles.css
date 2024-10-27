@@ -26,3 +26,10 @@ body {
 .instructions-list {
     list-style: none;
 }
+
+.human-choices {
+    display: flex;
+    justify-content: center;
+    gap: 1vw;
+    margin: 4vh;
+}

@@ -22,3 +22,7 @@ body {
     padding: 2vh 2vw;
     border-radius: 16px;
 }
+
+.instructions-list {
+    list-style: none;
+}

@@ -1,7 +1,7 @@
 // Global variables for human and computer scores
 let human_score = 0, 
     computer_score = 0,
-    current_round = 0;
+    current_round = 1;
 
 function getHumanChoiceNumber(buttonId) {
     if(buttonId === 'rock') return 1;
@@ -13,6 +13,25 @@ function getHumanChoiceNumber(buttonId) {
 // Generate random number from 0 to 3
 function generateComputerChoice() {
     return Math.floor((Math.random() * 3) + 1);
+}
+
+function getChoiceName(choice_number) {
+    switch(choice_number) {
+        case 1:
+            return 'ROCK';
+        case 2:
+            return 'PAPER';
+        default:
+            return 'SCISSORS';
+    }
+}
+
+function displayChoices(human_choice_number, computer_choice_number) {
+    const human_choice_container = document.querySelector('.human-choice-container');
+    const computer_choice_container = document.querySelector('.computer-choice-container');
+    
+    human_choice_container.textContent = `You chose ${getChoiceName(human_choice_number)}`;
+    computer_choice_container.textContent = `Computer chose ${getChoiceName(computer_choice_number)}`;
 }
 
 // Calculate winner using human and computer choice
@@ -108,11 +127,15 @@ function resetAllValues() {
 
     const result_container = document.querySelector(".winner-container");
     result_container.textContent = "";
+
+    const human_choice_container = document.querySelector('.human-choice-container');
+    const computer_choice_container = document.querySelector('.computer-choice-container');
+    
+    human_choice_container.textContent = "";
+    computer_choice_container.textContent = "";
 }
 
 function play(buttonId) {
-    ++current_round;
-
     if(current_round === 6){
         resetAllValues();
     }
@@ -130,6 +153,8 @@ function play(buttonId) {
     // Get winner using human and computer choice
     let winner = getWinner(human_choice_number, computer_choice_number);
 
+    displayChoices(human_choice_number, computer_choice_number);
+
     // Modify user and computer scores after each round
     modifyScores(winner);
 
@@ -137,9 +162,12 @@ function play(buttonId) {
         // Print the result of rock-paper-scissors game
         displayWinner();
     }
+
+    current_round++;
 }
 
 const humanChoiceButtons = document.querySelectorAll('.rps-option');
+const resetButton = document.querySelector('.reset-button');
 
 // Calls the play function with button id for each of the rock, paper and scissor buttons
 humanChoiceButtons.forEach((button) => {
@@ -147,4 +175,8 @@ humanChoiceButtons.forEach((button) => {
     button.addEventListener('click', () => {
         play(button.id);
     })
+})
+
+resetButton.addEventListener('click', () => {
+    resetAllValues();
 })

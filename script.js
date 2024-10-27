@@ -10,27 +10,11 @@ console.info(`Please choose one of the following option number when prompted:
     3. Scissors`)
 console.log("Type play() in console to start the game!");
 
-// Ask user to enter 1, 2 or 3 where 1 means rock, 2 means paper, 3 means scissors or 'q' for quit
-function getHumanChoice() {
-    console.log(`Please choose one of the following option number:
-    1. Rock
-    2. Paper
-    3. Scissors`);
-    
-    let human_choice = prompt("Enter option(q for quit)");
-
-    return human_choice;
-}
-
-// Validate input
-function isValidHumanChoice(choice) {
-    if(choice === null || choice === "" || isNaN(choice)) return false;
-
-    let choice_number = parseInt(choice);
-
-    if(choice_number < 0 || choice_number > 3) return false;
-
-    return true;
+function getHumanChoiceNumber(buttonId) {
+    if(buttonId === 'rock') return 1;
+    else if(buttonId === 'paper') return 2;
+    else if(buttonId === 'scissors') return 3;
+    else return 4;
 }
 
 // Generate random number from 0 to 3
@@ -108,27 +92,13 @@ function displayScores(human_score, computer_score) {
     console.log(`Your Score: ${human_score}\nComputer Score: ${computer_score}`);
 }
 
-function play() {
+function play(buttonId) {
+    let human_choice_number = getHumanChoiceNumber(buttonId);
 
-    
-    // Continuously loop the game for user's input until user types 'q'
-    // Get human choice
-    let human_choice = getHumanChoice();
-
-    // If option is `q`, the loop is broken
-    if(human_choice === 'q') return;
-
-    // Check for the human choice validity
-    let isValid = isValidHumanChoice(human_choice);
-
-    // If the user choice is invalid, warning message is provided and loop is looped again
-    if(!isValid){
-        console.warn("Please enter a valid option number or 'q' for quit!");
+    if(human_choice_number === 4){
+        alert("Invalid choice!");
         return;
     }
-
-    // Convert the `option` string to number
-    let human_choice_number = parseInt(human_choice);
 
     // If it is valid, use a random number out of 1, 2 or 3 by the computer
     let computer_choice_number = generateComputerChoice();
@@ -149,4 +119,12 @@ function play() {
     console.log("Thank you for playing!");
 }
 
-// play();
+const humanChoiceButtons = document.querySelectorAll('.rps-option');
+
+// Calls the play function with button id for each of the rock, paper and scissor buttons
+humanChoiceButtons.forEach((button) => {
+
+    button.addEventListener('click', () => {
+        play(button.id);
+    })
+})

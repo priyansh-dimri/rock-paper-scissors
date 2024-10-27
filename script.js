@@ -84,6 +84,9 @@ function displayWinner(winner) {
 function modifyScores(winner) {
     if(winner === "User") human_score++;
     else if(winner === "Computer") computer_score++;
+
+    const current_round_result_container = document.querySelector(`.round-${current_round}-winner`);
+    current_round_result_container.textContent = winner;
 }
 
 function play(buttonId) {

@@ -42,3 +42,17 @@ body {
     font-weight: bold;
     background-color: transparent;
 }
+
+.round-winner-container {
+    display: flex;
+    gap: 1vw;
+    text-align: center;
+    margin: 4vh;
+}
+
+.round {
+    flex: 1;
+    padding: 1vh;
+    border: 2px solid black;
+    border-radius: 16px;
+}

@@ -75,10 +75,16 @@ function getWinner(humanChoice, computerChoice) {
     return winner;
 }
 
+function modifyWinner(winner_text) {
+    const winnerContainer = document.querySelector('.winner-container');
+
+    winnerContainer.textContent = winner_text;
+}
+
 // Function to alert the winner
-function printResult(winner) {
-    if(winner === "Tie") alert("It is a tie!");
-    else alert(`Winner is ${winner}!`);
+function displayWinner(winner) {
+    if(winner === "Tie") modifyWinner("It is a tie!");
+    else modifyWinner(`Winner is ${winner}!`);
 }
 
 // Function to modify the scores of user or computer based on winner
@@ -107,7 +113,7 @@ function play(buttonId) {
     let winner = getWinner(human_choice_number, computer_choice_number);
 
     // Print the result of rock-paper-scissors game
-    printResult(winner);
+    displayWinner(winner);
 
     // Modify user and computer scores after each round
     modifyScores(winner, human_score, computer_score);

@@ -77,13 +77,13 @@ function modifyWinner(winner_text) {
 // Function to alert the winner
 function displayWinner() {
     if(human_score === computer_score) {
-        modifyWinner("IT IS A TIE!");
+        modifyWinner("IT IS A TIE! 🎉");
     }
     else if(human_score > computer_score) {
-        modifyWinner("YOU WON!");
+        modifyWinner("YOU WON! 🥳");
     }
     else {
-        modifyWinner("COMPUTER WON!");
+        modifyWinner("COMPUTER WON! 🤖");
     }
 }
 

@@ -45,6 +45,7 @@ body {
 
 .round-winner-container {
     display: flex;
+    flex-wrap: wrap;
     gap: 1vw;
     text-align: center;
     margin: 4vh;
@@ -61,4 +62,8 @@ body {
     text-align: center;
     font-size: larger;
     font-weight: bolder;
+}
+
+.round-winners-heading {
+    text-align: center;
 }

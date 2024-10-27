@@ -56,3 +56,9 @@ body {
     border: 2px solid black;
     border-radius: 16px;
 }
+
+.winner-container {
+    text-align: center;
+    font-size: larger;
+    font-weight: bolder;
+}

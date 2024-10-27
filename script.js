@@ -75,9 +75,16 @@ function modifyWinner(winner_text) {
 }
 
 // Function to alert the winner
-function displayWinner(winner) {
-    if(winner === "Tie") modifyWinner("It is a tie!");
-    else modifyWinner(`Winner is ${winner}!`);
+function displayWinner() {
+    if(human_score === computer_score) {
+        modifyWinner("IT IS A TIE!");
+    }
+    else if(human_score > computer_score) {
+        modifyWinner("YOU WON!");
+    }
+    else {
+        modifyWinner("COMPUTER WON!");
+    }
 }
 
 // Function to modify the scores of user or computer based on winner
@@ -89,8 +96,26 @@ function modifyScores(winner) {
     current_round_result_container.textContent = winner;
 }
 
+function resetAllValues() {
+    human_score = 0;
+    computer_score = 0;
+    current_round = 1;
+
+    for(let i = 1; i <= 5; ++i) {
+        const current_round_result_container = document.querySelector(`.round-${i}-winner`);
+        current_round_result_container.textContent = "";
+    }
+
+    const result_container = document.querySelector(".winner-container");
+    result_container.textContent = "";
+}
+
 function play(buttonId) {
     ++current_round;
+
+    if(current_round === 6){
+        resetAllValues();
+    }
 
     let human_choice_number = getHumanChoiceNumber(buttonId);
 
@@ -108,9 +133,9 @@ function play(buttonId) {
     // Modify user and computer scores after each round
     modifyScores(winner);
 
-    if(round_count === 5) {
+    if(current_round === 5) {
         // Print the result of rock-paper-scissors game
-        displayWinner(winner);
+        displayWinner();
     }
 }
 

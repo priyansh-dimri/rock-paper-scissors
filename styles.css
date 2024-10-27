@@ -29,7 +29,16 @@ body {
 
 .human-choices {
     display: flex;
-    justify-content: center;
     gap: 1vw;
     margin: 4vh;
+    flex-wrap: wrap;
+}
+
+.rps-option {
+    flex: 1;
+    padding: 1vw;
+    border-radius: 16px;
+    font-size: larger;
+    font-weight: bold;
+    background-color: transparent;
 }

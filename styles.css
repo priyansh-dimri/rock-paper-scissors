@@ -13,3 +13,12 @@ body {
     text-align: center;
     margin: 5vh 5vw;
 }
+
+.instructions {
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid black;
+    max-width: fit-content;
+    padding: 2vh 2vw;
+    border-radius: 16px;
+}

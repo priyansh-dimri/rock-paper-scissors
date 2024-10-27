@@ -14,13 +14,19 @@ body {
     margin: 5vh 5vw;
 }
 
-.instructions {
-    margin: 0 auto;
-    text-align: center;
+.game-details-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
+    margin: 4vh;
+}
+
+.game-details-subcontainer {
+    flex: 1;
     border: 2px solid black;
-    max-width: fit-content;
-    padding: 2vh 2vw;
+    text-align: center;
     border-radius: 16px;
+    padding: 2vh 2vw;
 }
 
 .instructions-list {

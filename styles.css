@@ -1,76 +1,77 @@
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 /* Remove all default margin and padding from all elements */
 *,
 *::before,
-*::after{
-    margin: 0;
-    padding: 0
+*::after {
+  margin: 0;
+  padding: 0;
 }
 
 .game-title {
-    text-align: center;
-    margin: 5vh 5vw;
+  text-align: center;
+  margin: 5vh 5vw;
 }
 
 .game-details-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1vw;
-    margin: 4vh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1vw;
+  margin: 4vh;
 }
 
 .game-details-subcontainer {
-    flex: 1;
-    border: 2px solid black;
-    text-align: center;
-    border-radius: 16px;
-    padding: 2vh 2vw;
+  flex: 1;
+  border: 2px solid black;
+  text-align: center;
+  border-radius: 16px;
+  padding: 2vh 2vw;
 }
 
 .instructions-list {
-    list-style: none;
+  list-style: none;
 }
 
 .human-choices {
-    display: flex;
-    gap: 1vw;
-    margin: 4vh;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 1vw;
+  margin: 4vh;
+  flex-wrap: wrap;
 }
 
 .rps-option {
-    flex: 1;
-    padding: 1vw;
-    border-radius: 16px;
-    font-size: larger;
-    font-weight: bold;
-    background-color: transparent;
+  flex: 1;
+  padding: 1vw;
+  border-radius: 16px;
+  font-size: larger;
+  font-weight: bold;
+  background-color: transparent;
 }
 
 .round-winner-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1vw;
-    text-align: center;
-    margin: 4vh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1vw;
+  text-align: center;
+  margin: 4vh;
 }
 
 .round {
-    flex: 1;
-    padding: 1vh;
-    border: 2px solid black;
-    border-radius: 16px;
+  flex: 1;
+  padding: 1vh;
+  border: 2px solid black;
+  border-radius: 16px;
 }
 
 .winner-container {
-    text-align: center;
-    font-size: larger;
-    font-weight: bolder;
+  text-align: center;
+  font-size: larger;
+  font-weight: bolder;
 }
 
 .round-winners-heading {
-    text-align: center;
+  text-align: center;
 }

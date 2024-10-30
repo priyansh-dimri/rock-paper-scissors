@@ -3,6 +3,7 @@ let human_score = 0,
     computer_score = 0,
     current_round = 1;
 
+// Function to return the number related to each buttonId and 4 for invalid ID
 function getHumanChoiceNumber(buttonId) {
     if(buttonId === 'rock') return 1;
     else if(buttonId === 'paper') return 2;
@@ -115,19 +116,24 @@ function modifyScores(winner) {
     current_round_result_container.textContent = winner;
 }
 
+// Function to reset all values and revert the state of game to fresh state
 function resetAllValues() {
+    // Revert the values of human_score, computer_score and current_round to original state
     human_score = 0;
     computer_score = 0;
     current_round = 1;
 
+    // Clear the text content of all rounds results
     for(let i = 1; i <= 5; ++i) {
         const current_round_result_container = document.querySelector(`.round-${i}-winner`);
         current_round_result_container.textContent = "";
     }
 
+    // Clear out the winner of 5 rounds
     const result_container = document.querySelector(".winner-container");
     result_container.textContent = "";
 
+    // Clear out the human choice and computer choices data
     const human_choice_container = document.querySelector('.human-choice-container');
     const computer_choice_container = document.querySelector('.computer-choice-container');
     

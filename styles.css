@@ -29,6 +29,14 @@ body {
   text-align: center;
   border-radius: 16px;
   padding: 2vh 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.reset-button {
+  padding: 1vh 2vw;
+  border-radius: 16px;
 }
 
 .instructions-list {
